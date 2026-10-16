@@ -1156,6 +1156,9 @@ pub(crate) fn body(ui: &mut egui::Ui, d: &mut FieldDraft, t: &crate::theme::Toke
                         if (widgets::pill_button(ui, tl!("Add"), false).clicked() || typed) && !d.new_option.trim().is_empty() {
                             d.options.push(d.new_option.trim().to_string());
                             d.new_option.clear();
+                            if typed {
+                                r.request_focus();
+                            }
                         }
                     });
                     ui.add_space(6.0);
